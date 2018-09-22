@@ -41,6 +41,10 @@ def alunos():
     return render_template("alunos.html",Nomes=Nomes)
 
 
+@App.errorhandler(404)
+def TrataErroNaoEncontrado(error):
+    return render_template("404.html")
+
     
 if __name__ == "__main__":
     App.run(port=80, debug=True)
