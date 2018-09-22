@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>LISTA DE ALUNOS</title>
+    </head>
+
+    <body>
+        <h1>lista de alunos</h1>
+        <p>RELACAO DE ALUNOS CADASTRADOS NO SISTEMA </p>
+        <ul>
+                {% for Alunos in Nomes %}
+                <li>{{ Alunos.RA }} - {{ Alunos.NOME }}</li>
+                {% endfor %}
+                </ul>
+    </body>
+</html>

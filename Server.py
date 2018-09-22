@@ -1,5 +1,7 @@
 from flask import Flask
 from flask import render_template
+import Grupos
+
 
 App = Flask(__name__, template_folder='./')
 
@@ -19,6 +21,26 @@ def Sobre():
 @App.route("/agenda", methods=["GET"])
 def Agenda():
     return render_template("/agenda.html")
+
+
+@App.route("/nome/<Param1>", methods=["GET"])
+def nome(Param1):
+    Recebido = Param1
+    return render_template("nome.html",nome=Recebido)
+
+
+@App.route("/cadastrar", methods=["GET"])
+def cadastrar():
+    Grupos.GravaAlunos()
+    return render_template("home.html")
+
+
+@App.route("/alunos",  methods=["GET"])
+def alunos():  
+    Nomes = Grupos.ListarAlunos()
+    return render_template("alunos.html",Nomes=Nomes)
+
+
     
 if __name__ == "__main__":
-    App.run(port=80)
+    App.run(port=80, debug=True)
